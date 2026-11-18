@@ -2,8 +2,6 @@ const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('.site-nav');
 const dialog = document.querySelector('#info-dialog');
 const languageButtons = document.querySelectorAll('[data-language-choice]');
-const STORAGE_KEY ='lucky-sheep-language';
-
 const zh = {
 'Lucky Sheep — Be the Lucky Sheep. Take It All.':'幸运羊——成为幸运羊，赢得一切',
 'Lucky Sheep home':'幸运羊主页',
@@ -343,7 +341,6 @@ function setLanguage(language) {
     button.classList.toggle('is-active', active);
     button.setAttribute('aria-pressed', String(active));
   });
-  localStorage.setItem(STORAGE_KEY, selected);
 }
 
 menuToggle?.addEventListener('click', () => {
@@ -376,4 +373,4 @@ languageButtons.forEach((button) => {
   button.addEventListener('click', () => setLanguage(button.dataset.languageChoice));
 });
 
-setLanguage(localStorage.getItem(STORAGE_KEY) ||'zh');
+setLanguage('zh');
