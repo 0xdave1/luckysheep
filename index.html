@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN" data-language="zh">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#08090b" />
-    <meta name="description" content="Lucky Sheep — a cinematic preview of a burn-powered game protocol. Be the Lucky Sheep. Take it all." />
-    <title>Lucky Sheep — Be the Lucky Sheep. Take It All.</title>
+    <meta name="description" content="幸运羊——燃烧驱动游戏协议的电影感预览。成为幸运羊，赢得一切。" />
+    <title>幸运羊——成为幸运羊，赢得一切。</title>
     <link rel="preload" as="image" href="assets/lucky-sheep-official-logo.png" />
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
@@ -28,6 +28,11 @@
         <a href="#governance">Governance</a>
         <a href="#archives">Archives</a>
       </nav>
+      <div class="language-switcher" role="group" aria-label="Language">
+        <button type="button" class="language-button is-active" data-language-choice="zh" aria-pressed="true">中文</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" class="language-button" data-language-choice="en" aria-pressed="false">English</button>
+      </div>
       <button class="button button-small button-outline connect-button" type="button" data-unavailable>
         <span class="wallet-orb" aria-hidden="true"></span> Wallet unavailable
       </button>
