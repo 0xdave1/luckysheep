@@ -12,8 +12,9 @@ Open `index.html` in a modern browser. The static, responsive site defaults to S
 
 ## Official social channels
 
-- Telegram: <https://t.me/+0qB9AjvkpuE0ZWZh>
+- Telegram: <https://t.me/LuckySheep2027>
 - X: <https://x.com/The_LuckySheep>
+- DeBox: <https://m.debox.pro/group?id=xdgmw46w&code=gupw8txa>
 
 The names of platforms and institutions displayed on the site are reproduced from supplied project materials. Their inclusion does not establish a formal partnership, investment, listing, or endorsement.
 

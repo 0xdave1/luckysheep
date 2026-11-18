@@ -106,6 +106,7 @@ html[data-language="zh"] .site-nav a,html[data-language="zh"] .button,html[data-
 .nav-social-links{display:flex;align-items:center;gap:10px}
 .site-nav .social-icon-link{display:grid;place-items:center;width:20px;height:28px;padding:0;color:#aaa49a}
 .social-icon-link svg{display:block;width:14px;height:14px;fill:currentColor}
+.social-icon-link img,.footer-social-link img{display:block;width:15px;height:15px;object-fit:contain;border-radius:3px}
 .site-nav .social-icon-link:hover,.site-nav .social-icon-link:focus-visible{color:var(--champagne)}
 .footer-social{grid-column:1/-1;display:flex;align-items:center;gap:21px;color:#aaa49a}
 .footer-social-link{display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:.08em;transition:color .2s}
