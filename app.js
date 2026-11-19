@@ -105,6 +105,18 @@ const zh = {
   'NOT PROVIDED': '未提供',
   'See source status ↗': '查看来源状态 ↗',
   'The golden treasury': '黄金金库',
+  'OFFICIAL TOKEN INFORMATION': '官方代币信息',
+  'Verified addresses': '已验证地址',
+  'for the live network.': '用于当前网络。',
+  'Use the BNB Chain explorer links to inspect each address directly. The values below are shown exactly as supplied.': '可通过 BNB Chain 区块浏览器链接直接查看每个地址。以下内容按提供的信息原样展示。',
+  'TOKEN CONTRACT': '代币合约',
+  'Token Contract Address (CA)': '代币合约地址（CA）',
+  'Copy address': '复制地址',
+  'View on BscScan': '在 BscScan 查看',
+  'TECHNICAL INFORMATION': '技术信息',
+  'Liquidity Pair Address': '流动性池地址',
+  'Copied': '已复制',
+  'Copy failed': '复制失败',
   '04 / The golden treasury': '04 / 黄金金库',
   'Every allocation': '每一项分配',
   'has a purpose.': '都有其意义。',
@@ -313,6 +325,12 @@ function setLanguage(language) {
   const description = document.querySelector('meta[name="description"]');
   if (description) description.setAttribute('content', selected === 'zh' ? '幸运羊——燃烧驱动游戏协议的电影感预览。成为幸运羊，赢得一切。' : 'Lucky Sheep — a cinematic preview of a burn-powered game protocol. Be the Lucky Sheep. Take it all.');
   translateNode(document.body, selected);
+  document.querySelectorAll('.copy-address').forEach((button) => {
+    const feedback = button.dataset.copyFeedback;
+    button.textContent = feedback
+      ? (selected === 'zh' ? zh[feedback === 'success' ? 'Copied' : 'Copy failed'] : (feedback === 'success' ? 'Copied' : 'Copy failed'))
+      : (selected === 'zh' ? zh['Copy address'] : 'Copy address');
+  });
   const attrs = [
     ['.wordmark', 'aria-label', '幸运羊主页'],
     ['.language-switcher', 'aria-label', '语言'],
@@ -373,3 +391,40 @@ languageButtons.forEach((button) => {
 });
 
 setLanguage(localStorage.getItem(STORAGE_KEY) || 'zh');
+
+async function copyAddress(address) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(address);
+    return;
+  }
+  const textarea = document.createElement('textarea');
+  textarea.value = address;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand('copy');
+  textarea.remove();
+  if (!copied) throw new Error('Clipboard copy was not available');
+}
+
+document.querySelectorAll('.copy-address').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const address = button.dataset.copyAddress;
+    if (!address) return;
+    try {
+      await copyAddress(address);
+      button.dataset.copyFeedback = 'success';
+      button.textContent = document.documentElement.dataset.language === 'zh' ? zh.Copied : 'Copied';
+    } catch (error) {
+      console.error('Unable to copy contract address', error);
+      button.dataset.copyFeedback = 'failure';
+      button.textContent = document.documentElement.dataset.language === 'zh' ? zh['Copy failed'] : 'Copy failed';
+    }
+    window.setTimeout(() => {
+      delete button.dataset.copyFeedback;
+      button.textContent = document.documentElement.dataset.language === 'zh' ? zh['Copy address'] : 'Copy address';
+    }, 1800);
+  });
+});

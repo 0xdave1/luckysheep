@@ -9,6 +9,21 @@
 .exit-icon{font:29px var(--serif);color:var(--champagne)}
 .exit-accounting p{font-size:9px;color:#908a80;line-height:1.75;margin:6px 0 0}
 .exit-accounting .micro-label{max-width:115px;line-height:1.7;text-align:right}
+.contract-info{max-width:1140px;margin:0 auto 72px;padding:27px 29px;border:1px solid rgba(216,174,88,.24);background:linear-gradient(105deg,rgba(155,107,36,.08),rgba(17,19,23,.78) 48%,rgba(154,88,46,.05));display:grid;grid-template-columns:minmax(210px,.7fr) 1.3fr;gap:40px;align-items:center}
+.contract-info-heading h3{font:400 clamp(27px,3vw,40px)/1.08 var(--serif);letter-spacing:-.04em;margin:13px 0 15px}
+.contract-info-heading p{max-width:310px;color:#908b82;font-size:9px;line-height:1.8;margin:0}
+.contract-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.contract-card{min-width:0;padding:17px 18px 15px;border-top:1px solid var(--gold2);background:rgba(8,9,11,.48)}
+.contract-card-top{display:flex;justify-content:space-between;gap:10px;color:#756e64;font-size:7px;letter-spacing:.13em}
+.contract-index{color:var(--gold);font:italic 11px var(--serif)}
+.contract-card h4{font:16px var(--serif);font-weight:400;margin:17px 0 11px}
+.contract-card code{display:block;color:#e2c886;font:11px/1.6 var(--sans);overflow-wrap:anywhere;word-break:break-word}
+.contract-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}
+.contract-actions button,.contract-actions a{font-size:8px;letter-spacing:.08em}
+.contract-actions button{border:1px solid rgba(216,174,88,.4);background:transparent;color:var(--champagne);padding:8px 10px;cursor:pointer;transition:background .2s,border-color .2s}
+.contract-actions button:hover,.contract-actions button:focus-visible{background:rgba(216,174,88,.1);border-color:var(--gold)}
+.contract-actions a{color:var(--gold);white-space:nowrap}
+.contract-actions a span{font-size:12px;margin-left:4px}
 .governance-section{padding:118px 11vw;display:grid;grid-template-columns:.9fr 1.1fr;gap:7vw;align-items:center;background:linear-gradient(110deg,#111215,#0a0b0d 54%,#11100e);border-block:1px solid rgba(255,255,255,.06)}
 .governance-heading h2{font:400 clamp(42px,5vw,68px)/1.04 var(--serif);letter-spacing:-.045em;margin:18px 0}
 .governance-heading>p{max-width:410px;color:#96938d;font-size:10px;line-height:1.9}
@@ -118,6 +133,7 @@ html[data-language="zh"] .site-nav a,html[data-language="zh"] .button,html[data-
 .source-partners-note{grid-column:1/-1;margin:0;padding-top:13px;border-top:1px solid rgba(255,255,255,.08);color:#827c72;font-size:8px;line-height:1.75}
 @media(max-width:1000px){.site-nav{gap:12px}.nav-social-links{gap:7px}.site-header{padding-inline:3vw}}
 @media(max-width:760px){.site-nav{gap:0}.nav-social-links{width:100%;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}.site-nav .social-icon-link{width:38px;height:34px}.source-partners{grid-template-columns:1fr;padding:20px 16px;gap:19px}.source-partners-note{grid-column:1}.source-partners-column h3{font-size:18px}.source-name-list{gap:6px}.source-name-list li{font-size:7px}.footer-social{gap:16px}.footer-social-link{font-size:8px}}
+@media(max-width:760px){.contract-info{grid-template-columns:1fr;gap:24px;margin-bottom:52px;padding:21px 16px}.contract-info-heading p{max-width:none}.contract-list{grid-template-columns:1fr}.contract-card{padding-inline:13px}.contract-card h4{font-size:15px}.contract-card code{font-size:10px}.contract-actions{align-items:flex-start;flex-wrap:wrap}}
 
 /* Partner and institution marks supplied in the protocol deck and official brand materials. */
 [hidden]{display:none!important}
